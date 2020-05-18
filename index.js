@@ -76,4 +76,6 @@ app.use("/graphql", httpGl({
 app.listen(PORT, HOST, () => console.log(`
 Started on ${HOST}:${PORT}
 
+Open ${HOST}:${PORT}/grqphql/ for demo
+
 `))
