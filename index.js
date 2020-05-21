@@ -21,8 +21,9 @@ const schema = buildSchema(`
         building: String!
     }
 
-    #Comment for clinic
+    "Comment for clinic"
     type Comment {
+        "author's email"
         email: String!
         text: String!
         rate: Float!
@@ -34,6 +35,7 @@ const schema = buildSchema(`
         service_count: Int!
     }
 
+    "Clinic entity"
     type Clinic {
         id: ID!
         title: String!
@@ -48,6 +50,9 @@ const schema = buildSchema(`
 
     type Query {
         myId: String!
+        """
+        Get clinic by id
+        """
         clinic(id: ID!): Clinic
         comments(clinic: ID!, rate: [Int], service_type: Int): [Comment]
     }

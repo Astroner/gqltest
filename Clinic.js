@@ -24,7 +24,7 @@ module.exports = class Clinic extends Loadable {
                 .then(data => resolve(data.description))
         })
     }
-    addres() {
+    address() {
         return new Promise(resolve => {
             this.getData()
                 .then(data => resolve(data.address))
@@ -51,7 +51,9 @@ module.exports = class Clinic extends Loadable {
     comments(){
         return new Promise(resolve => {
             axios.post("https://api.beautyglobalclub.com/beauty/comments/", {
-                clinic_ids: [this.id]
+                data: {
+                    clinic_ids: [this.id]
+                }
             })
                 .then(res => resolve(res.data.results.map(comm => new Comment(comm.email, comm.body, comm.avg_rating))))
         })
